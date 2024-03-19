@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <View
+            android:id="@+id/exit"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/close"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:text="New Task"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textSize="20dp"
+            android:textColor="#4F7396"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginLeft="17mm"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp">
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="55mm"
+            android:layout_height="60dp"
+            android:hint="Title"
+            android:paddingLeft="20dp"
+            android:textColorHint="#4F7396"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/fields"/>
+
+        <EditText
+            android:id="@+id/textArea"
+            android:layout_width="55mm"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:hint="Notes"
+            android:textColorHint="#4F7396"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/radiussed"
+            android:backgroundTint="#E8EDF2"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <View
+            android:id="@+id/taskDate"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/calendar"
+            android:layout_marginLeft="35mm"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50mm"
+        android:textSize="17dp"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+
+        <Switch
+            android:id="@+id/isDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35mm"/>
+
+    </LinearLayout>
+
+</LinearLayout>

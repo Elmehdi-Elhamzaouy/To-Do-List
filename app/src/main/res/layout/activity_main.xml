@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="150dp"
+            android:text="To-Do-List"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/format_list"
+            android:layout_gravity="center"
+            android:layout_marginLeft="17mm"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:id="@+id/TodaysTasks"
+            android:layout_width="190dp"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+            android:background="@drawable/radiussed">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/calendar"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="1 task"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Today"
+                android:textColor="#4F7396"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/upcoming"
+            android:layout_width="190dp"
+            android:layout_height="130dp"
+            android:background="@drawable/radiussed"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp">
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/calendar"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="3 tasks"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Upcoming"
+                android:textColor="#4F7396"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/AddTask"
+            android:layout_width="25mm"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiussed"
+            android:backgroundTint="#007BFF"
+            android:drawableStart="@drawable/add"
+            android:drawableTint="@color/white"
+            android:text="Add New Task"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/dailyTasks"
+            android:layout_width="25mm"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/radiussed"
+            android:backgroundTint="#007BFF"
+            android:drawableStart="@drawable/arrow_forward"
+            android:drawableTint="@color/white"
+            android:text="Daily Taks"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/showAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show All Tasks"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <ListView
+        android:id="@+id/tasks"
+        android:layout_width="match_parent"
+        android:layout_height="50mm"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"/>
+
+</LinearLayout>
