@@ -4,35 +4,52 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var addTaskButton: Button
+    private lateinit var dailyTasks: Button
     private lateinit var tasksListView: ListView
     private lateinit var todaysTasks: LinearLayout
     private lateinit var upcoming: LinearLayout
     private lateinit var showAll: TextView
+    private lateinit var todayTextView: TextView
+    private lateinit var upcomingTasks: TextView
     private lateinit var dbApp: DBApp
+
+    private val REQUEST_CODE_ADD_TASK = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         addTaskButton = findViewById(R.id.AddTask)
+        dailyTasks = findViewById(R.id.dailyTasks)
         tasksListView = findViewById(R.id.tasks)
         todaysTasks = findViewById(R.id.TodaysTasks)
         upcoming = findViewById(R.id.upcoming)
         showAll = findViewById(R.id.showAll)
+        todayTextView = findViewById(R.id.today)
+        upcomingTasks = findViewById(R.id.upcomingTasks)
         dbApp = DBApp(this)
+
+        todayTextView.text = "${dbApp.getAllTodayTasks().size} tasks"
+        upcomingTasks.text = "${dbApp.getAllExceptTodayTasks().size} tasks"
 
         addTaskButton.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_ADD_TASK)
+        }
+        dailyTasks.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            startActivityForResult(intent, REQUEST_CODE_ADD_TASK)
         }
 
         showAll.setOnClickListener {
@@ -53,12 +70,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateListView(dbApp.getAllTasks())
+
     }
 
     private fun updateListView(tasks: List<Tasks>) {
         val taskTitles = tasks.map { it.title }.toTypedArray()
-        val adapter = ArrayAdapter(this, R.layout.list_items, R.id.TextTask, taskTitles)
-        tasksListView.adapter = adapter
+        tasksListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, taskTitles)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_ADD_TASK && resultCode == RESULT_OK) {
+            updateListView(dbApp.getAllTasks())
+        }
     }
 
     override fun onDestroy() {
@@ -66,3 +90,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 }
+
+
+

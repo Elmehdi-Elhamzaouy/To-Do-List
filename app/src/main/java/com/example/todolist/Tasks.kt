@@ -4,5 +4,5 @@ data class Tasks (
     val title: String,
     val note: String,
     val date: String,
-    val isDone: Boolean
+    val isDaily: Boolean
 )

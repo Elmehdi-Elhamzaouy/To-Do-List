@@ -51,7 +51,10 @@ class MainActivity2 : AppCompatActivity() {
             val note = notes.text.toString()
             val taskDate = date.text.toString()
             dbApp.addTask(titleText, note, taskDate, isDaily.isChecked)
-            Toast.makeText(this,"Task Added Succefully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Task Added Successfully", Toast.LENGTH_SHORT).show()
+
+            val resultIntent = Intent()
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
@@ -79,3 +82,4 @@ class MainActivity2 : AppCompatActivity() {
     }
 
 }
+
